@@ -1,0 +1,6 @@
+for (int h = 0; h < screenHeight; h++){
+			
+			for (int w = -(screenWidth / 2); w <= screenWidth / 2; w++) {
+				virusFactory.getBlueVirus(new Vector2((gridSize * w) + pillOrigin.x, pillOrigin.y - (h * gridSize)));
+			}
+		}
