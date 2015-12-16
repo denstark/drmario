@@ -16,11 +16,29 @@ public class Game : MonoBehaviour {
 	private int screenWidth = 8;
 	private Vector2 pillOrigin = new Vector2(-28,44);
 
+  // can't fit any more than this (given 8 x 16 with top 3 empty)
+  private int maxVirusCount = 104;
+
 	// Use this for initialization
 	void Start() {
+    LevelBuilder builder = new LevelBuilder();
+    VirusLocation[] locs = builder.populateViruses(28, screenWidth, screenHeight);
 
-		virusFactory.getBlueVirus(getGridPosition(5, 11));
-		virusFactory.getYellowVirus(getGridPosition(6,11));
+    foreach (VirusLocation loc in locs) {
+      Vector2 pos = getGridPosition(loc.x, loc.y);
+
+      switch (loc.color) {
+        case "yellow":
+          virusFactory.getYellowVirus(pos);
+          break;
+        case "blue":
+          virusFactory.getRedVirus(pos);
+          break;
+        case "red":
+          virusFactory.getBlueVirus(pos);
+          break;
+      }
+    }
 
 		redPill = (GameObject)pillSegmentFactory.getRedPill(pillOrigin);
 		InvokeRepeating("gameTick", 1, tickInterval);
