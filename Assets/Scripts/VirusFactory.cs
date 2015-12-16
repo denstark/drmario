@@ -16,15 +16,15 @@ public class VirusFactory : MonoBehaviour {
 	
 	}
 
-	public Object getBlueVirus(Vector2 position) {
-		return Instantiate(blueVirus, new Vector3(position.x, position.y), Quaternion.identity);
+	public GameObject getBlueVirus(Vector2 position) {
+		return (GameObject)Instantiate(blueVirus, new Vector3(position.x, position.y), Quaternion.identity);
 	}
 
-	public Object getRedVirus(Vector2 position) {
-		return Instantiate(redVirus, new Vector3(position.x, position.y), Quaternion.identity);
+	public GameObject getRedVirus(Vector2 position) {
+		return (GameObject)Instantiate(redVirus, new Vector3(position.x, position.y), Quaternion.identity);
 	}
 
-	public Object getYellowVirus(Vector2 position) {
-		return Instantiate(yellowVirus, new Vector3(position.x, position.y), Quaternion.identity);
+	public GameObject getYellowVirus(Vector2 position) {
+		return (GameObject)Instantiate(yellowVirus, new Vector3(position.x, position.y), Quaternion.identity);
 	}
 }
